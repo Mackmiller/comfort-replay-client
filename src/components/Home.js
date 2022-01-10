@@ -1,12 +1,24 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import axios from "axios"
 import { Button, FormGroup, Form } from "react-bootstrap"
 import apiUrl from '../apiConfig'
+import {
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    Legend,
+    ResponsiveContainer,
+  } from "recharts"
 
 const Home = (props) => {
 
 	let [fileUpload, setFileUpload] = useState({})
-	let [data, setData] = useState()
+	let [showData, setShowData] = useState([])
+	let [dailyData, setDailyData] = useState([])
+	const [loading, setLoading] = useState(false);
 
 	const handleFile = (event) => {
 		event.preventDefault();
@@ -14,27 +26,49 @@ const Home = (props) => {
 		setFileUpload(event.target.files[0]);
 	};
 
+	// useEffect(()=>{
+	// 	setData(response.data)
+	// }, handleSubmitData)
+
 	const handleSubmitData = (event) => {
 		event.preventDefault();
 		if (props.user) {
 			let formData = new FormData();
 			formData.append("file", fileUpload);
+			setLoading(true)
 			axios.post(apiUrl+"/data/", formData, {
 				headers: {
 					Authorization: 'Token '+ props.user.token
 				}
 			})
 				.then((response) => {
-					console.log(response.data);
-					setData(response.data)
-					console.log("this is set data", data)
+					const showData = response.data[0]
+					// console.log(showData)
+					const obj = JSON.parse(showData)
+					console.log("this is obj: ", obj)
+
+					const dailyData = response.data[1]
+					// console.log(dailyData)
+					const obj2 = JSON.parse(dailyData)
+					console.log("this is obj2: ", obj2)
+
+					setShowData(obj)
+					console.log("SHOW DATA SET", showData)
+
+					setDailyData(obj2)
+					console.log("SHOW DATA SET", dailyData)
+					// setLoading(false)
+				
+					
 				})
 				.catch((error) => {
-					console.log(error.response);
+					console.log(error.response)
+					setLoading(false)
 				});
 		}
 	};
 
+	// console.log(data)
 	
 	return (
 		<main className="content">
@@ -60,6 +94,32 @@ const Home = (props) => {
 			Submit
 			</Button>
 		</form>
+		{/* {loading? (
+			<div>Loading...</div>
+		) : (
+			<div>
+				<BarChart
+					width={1000}
+					height={350}
+					data={data}
+					margin={{
+						top: 5,
+						right: 30,
+						left: 150,
+						bottom: 5
+					}}
+					>
+					<CartesianGrid strokeDasharray="3 3" />
+					<XAxis dataKey="Start Time" />
+					<YAxis/>
+					<Tooltip />
+					<Legend />
+					<Bar dataKey="title_new" fill="#B48DD8" />
+				</BarChart>
+			</div>
+			)
+	
+		} */}
 		</main>
 	);
 }
