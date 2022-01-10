@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import axios from "axios"
 import { Button, FormGroup, Form } from "react-bootstrap"
 import apiUrl from '../apiConfig'
+import Visual1 from './Visual1'
 import {
     BarChart,
     Bar,
@@ -43,20 +44,20 @@ const Home = (props) => {
 			})
 				.then((response) => {
 					const showData = response.data[0]
-					// console.log(showData)
+					console.log(showData)
 					const obj = JSON.parse(showData)
-					console.log("this is obj: ", obj)
+					console.log("this is obj data: ", obj)
 
 					const dailyData = response.data[1]
 					// console.log(dailyData)
 					const obj2 = JSON.parse(dailyData)
-					console.log("this is obj2: ", obj2)
+					console.log("this is obj2 data: ", obj2)
 
 					setShowData(obj)
 					console.log("SHOW DATA SET", showData)
 
 					setDailyData(obj2)
-					console.log("SHOW DATA SET", dailyData)
+					console.log("DAILYDATA SET", dailyData)
 					// setLoading(false)
 				
 					
@@ -68,7 +69,6 @@ const Home = (props) => {
 		}
 	};
 
-	// console.log(data)
 	
 	return (
 		<main className="content">
@@ -94,6 +94,7 @@ const Home = (props) => {
 			Submit
 			</Button>
 		</form>
+		<Visual1 showData={showData} dailyData={dailyData}/>
 		{/* {loading? (
 			<div>Loading...</div>
 		) : (
