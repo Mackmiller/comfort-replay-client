@@ -6,6 +6,7 @@ import apiUrl from '../apiConfig'
 const Home = (props) => {
 
 	let [fileUpload, setFileUpload] = useState({})
+	let [data, setData] = useState()
 
 	const handleFile = (event) => {
 		event.preventDefault();
@@ -24,7 +25,9 @@ const Home = (props) => {
 				}
 			})
 				.then((response) => {
-					console.log(response);
+					console.log(response.data);
+					setData(response.data)
+					console.log("this is set data", data)
 				})
 				.catch((error) => {
 					console.log(error.response);
