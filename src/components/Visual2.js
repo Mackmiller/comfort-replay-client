@@ -10,9 +10,9 @@ import {
     ResponsiveContainer,
   } from "recharts"
 
-const Visual1 = (props) => {
+const Visual2 = (props) => {
     // console.log(props.showData)
-    const finalData = Object.entries(props.showData).map(([key, value]) => ({key,value}))
+    const finalData = Object.entries(props.dailyData).map(([key, value]) => ({key,value}))
 
     // const finalData = props.showData.map((c, i)=>{
     //     // establishing each key/value pair:
@@ -36,7 +36,7 @@ const Visual1 = (props) => {
                     
                     >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="key" style={{fontSize: 10}} />
+                    <XAxis dataKey="key" style={{fontSize: 9}}/>
                     <YAxis/>
                     <Tooltip />
                     <Legend />
@@ -47,4 +47,4 @@ const Visual1 = (props) => {
 	);
 }
 
-export default Visual1
+export default Visual2
