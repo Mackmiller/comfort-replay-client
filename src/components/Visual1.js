@@ -16,11 +16,11 @@ const Visual1 = (props) => {
     // console.log(props.showData)
     const finalData = Object.entries(props.showData).map(([key, value]) => ({key,value}))
     const topShow = Object.entries(props.oneShow).map(([key, value]) => ({key,value}))
-    const finalShow = topShow.parse()
     const addShow = () => {
-		axios.post(apiUrl+"/shows/", finalShow, {
+		axios.post(apiUrl+"/shows/", topShow, {
 			headers: {
-				Authorization: 'Token '+ props.user.token
+				'Authorization': 'Token '+ props.user.token
+
 			}
 		})
 			.then((response) => {
