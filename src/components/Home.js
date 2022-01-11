@@ -10,6 +10,7 @@ const Home = (props) => {
 	let [fileUpload, setFileUpload] = useState({})
 	let [showData, setShowData] = useState([])
 	let [dailyData, setDailyData] = useState([])
+	let [oneShow, setOneShow] = useState([])
 	const [charts, setCharts] = useState(false);
 
 	const handleFile = (event) => {
@@ -17,8 +18,6 @@ const Home = (props) => {
 		// const fileToUpload = event.target.files[0];
 		setFileUpload(event.target.files[0]);
 	};
-
-
 
 	const handleSubmitData = (event) => {
 		event.preventDefault();
@@ -43,12 +42,22 @@ const Home = (props) => {
 					// console.log(dailyData)
 					const obj2 = JSON.parse(dailyData)
 					// console.log("this is obj2 data: ", obj2)
+					
+					// handle data for top show
+					const oneShow = response.data[2]
+					const obj3 = JSON.parse(oneShow)
+					// console.log("TOP SHOW", obj3)
 
 					// set states
 					setShowData(obj)
 					console.log("SHOW DATA SET", showData)
+
 					setDailyData(obj2)
 					console.log("DAILYDATA SET", dailyData)
+
+					setOneShow(obj3)
+					console.log("TOPSHOW SET", oneShow)
+
 					setCharts(true)
 					
 				})
@@ -95,10 +104,14 @@ const Home = (props) => {
 			</div> */}
 			{charts? (
 				<>
-					<Visual1 showData={showData}/>
+					<Visual1 showData={showData} oneShow={oneShow}/>
 					<Visual2 dailyData={dailyData}/>
 				</>
-			) : console.log("no charts")}
+			) : (
+				<div>
+					<p>upload your file to begin.</p>
+				</div>
+			)}
 		</main>
 	);
 }

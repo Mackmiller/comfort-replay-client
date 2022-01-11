@@ -13,21 +13,20 @@ import {
 const Visual1 = (props) => {
     // console.log(props.showData)
     const finalData = Object.entries(props.showData).map(([key, value]) => ({key,value}))
+    const topShow = Object.entries(props.oneShow).map(([key, value]) => ({key,value}))
 
-    // const finalData = props.showData.map((c, i)=>{
-    //     // establishing each key/value pair:
-    //     const name = c[0]
-    //     const value = c[1]
-        
-    //     return (
-    //         name, value
-    //     ) 
-    // })
-    // console.log(finalData)
+    const textShow = topShow.map((s, i)=>{
+        // establishing each key/value pair:
+        return (
+            <h1>Your top show was {s.key}, which was watched a total of {s.value} times since March 11, 2020.</h1>
+        ) 
+    })
+    console.log(finalData)
 
 	return (
 		
         <div>
+            {textShow}
             <ResponsiveContainer width="95%" height={400}>
                 <BarChart
                     width={1500}
