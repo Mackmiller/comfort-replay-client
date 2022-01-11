@@ -53,6 +53,7 @@ const App = () => {
 						path='/sign-in/'
 						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 					/>
+					
           <Route
             path='/sign-out/'
             element={
