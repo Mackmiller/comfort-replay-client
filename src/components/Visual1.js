@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react"
+import axios from "axios"
+import apiUrl from '../apiConfig'
 import {
     BarChart,
     Bar,
@@ -14,6 +16,20 @@ const Visual1 = (props) => {
     // console.log(props.showData)
     const finalData = Object.entries(props.showData).map(([key, value]) => ({key,value}))
     const topShow = Object.entries(props.oneShow).map(([key, value]) => ({key,value}))
+    const finalShow = topShow.parse()
+    const addShow = () => {
+		axios.post(apiUrl+"/shows/", finalShow, {
+			headers: {
+				Authorization: 'Token '+ props.user.token
+			}
+		})
+			.then((response) => {
+				console.log("this is the response", response)
+			})
+			.catch((error) => {
+				console.log(error.response)
+			});
+	}
 
     const textShow = topShow.map((s, i)=>{
         // establishing each key/value pair:
@@ -24,8 +40,8 @@ const Visual1 = (props) => {
     console.log(finalData)
 
 	return (
-		
         <div>
+            {addShow()}
             {textShow}
             <ResponsiveContainer width="95%" height={400}>
                 <BarChart

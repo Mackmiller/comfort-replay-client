@@ -59,21 +59,14 @@ const Home = (props) => {
 					console.log("TOPSHOW SET", oneShow)
 
 					setCharts(true)
-					
+
+		
 				})
 				.catch((error) => {
 					console.log(error.response)
 				});
 		}
 	};
- 
-	// const createText = () => {
-	// 	// get show info ready for mapping
-	// 	const textData = Object.entries(showData).map(([key, value]) => ({key,value}))
-	// 	textData.map(text=>{
-	// 		return <li>{text.key}</li>
-	// 	})
-	// }
 
 	return (
 		<main className="content">
@@ -104,7 +97,7 @@ const Home = (props) => {
 			</div> */}
 			{charts? (
 				<>
-					<Visual1 showData={showData} oneShow={oneShow}/>
+					<Visual1 showData={showData} oneShow={oneShow} user={props.user}/>
 					<Visual2 dailyData={dailyData}/>
 				</>
 			) : (
