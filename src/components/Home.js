@@ -10,7 +10,7 @@ const Home = (props) => {
 	let [fileUpload, setFileUpload] = useState({})
 	let [showData, setShowData] = useState([])
 	let [dailyData, setDailyData] = useState([])
-	const [loading, setLoading] = useState(false);
+	const [charts, setCharts] = useState(false);
 
 	const handleFile = (event) => {
 		event.preventDefault();
@@ -25,35 +25,35 @@ const Home = (props) => {
 		if (props.user) {
 			let formData = new FormData();
 			formData.append("file", fileUpload);
-			setLoading(true)
 			axios.post(apiUrl+"/data/", formData, {
 				headers: {
 					Authorization: 'Token '+ props.user.token
 				}
 			})
 				.then((response) => {
-					const showData = response.data[0]
-					console.log(showData)
-					const obj = JSON.parse(showData)
-					console.log("this is obj data: ", obj)
 
+					// handle data for tv shows
+					const showData = response.data[0]
+					// console.log(showData)
+					const obj = JSON.parse(showData)
+					// console.log("this is obj data: ", obj)
+
+					// handle data for daily watching
 					const dailyData = response.data[1]
 					// console.log(dailyData)
 					const obj2 = JSON.parse(dailyData)
-					console.log("this is obj2 data: ", obj2)
+					// console.log("this is obj2 data: ", obj2)
 
+					// set states
 					setShowData(obj)
 					console.log("SHOW DATA SET", showData)
-
 					setDailyData(obj2)
 					console.log("DAILYDATA SET", dailyData)
-					// setLoading(false)
-				
+					setCharts(true)
 					
 				})
 				.catch((error) => {
 					console.log(error.response)
-					setLoading(false)
 				});
 		}
 	};
@@ -93,8 +93,12 @@ const Home = (props) => {
 			{/* <div>
 				{showData? createText() : null}
 			</div> */}
-			<Visual1 showData={showData}/>
-			<Visual2 dailyData={dailyData}/>
+			{charts? (
+				<>
+					<Visual1 showData={showData}/>
+					<Visual2 dailyData={dailyData}/>
+				</>
+			) : console.log("no charts")}
 		</main>
 	);
 }
