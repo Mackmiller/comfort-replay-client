@@ -36,7 +36,7 @@ const Visual1 = (props) => {
                     
                     >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="key" style={{fontSize: 10}} />
+                    <XAxis dataKey="key" style={{fontSize: 10}} interval={0} />
                     <YAxis/>
                     <Tooltip />
                     <Legend />
