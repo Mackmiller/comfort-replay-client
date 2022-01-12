@@ -4,16 +4,17 @@ import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 const linkStyle = {
     color: 'white',
-    textDecoration: 'none'
+    textDecoration: 'none',
+	backgroundColor: "#A9261E"
 }
 const authenticatedOptions = (
 	<>
-		<Nav.Link>
+		<Nav.Link style={{backgroundColor: "#A9261E"}}>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
 		</Nav.Link>
-		<Nav.Link>
+		<Nav.Link style={{backgroundColor: "#A9261E"}}>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
@@ -23,39 +24,39 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-        <Nav.Link>
+        <Nav.Link style={{backgroundColor: "#A9261E"}}>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Link>
-        <Nav.Link>
+        <Nav.Link style={{backgroundColor: "#A9261E"}}>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
         </Nav.Link>
 	</>
 )
 
-const alwaysOptions = (
-	<>
-		<Nav.Link>
-			<Link to='/' style={linkStyle}>
-				Home
-			</Link>
-		</Nav.Link>
-	</>
-)
+// const alwaysOptions = (
+// 	<>
+// 		<Nav.Link>
+// 			<Link to='/' style={linkStyle}>
+// 				Home
+// 			</Link>
+// 		</Nav.Link>
+// 	</>
+// )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
-		<Navbar.Brand>
+	<Navbar expand='md' style={{backgroundColor: "#A9261E"}}>
+		{/* <Navbar.Brand>
             <Link to='/' style={linkStyle}>
                 react-auth-template
             </Link>
-        </Navbar.Brand>
-		<Navbar.Toggle aria-controls='basic-navbar-nav' />
-		<Navbar.Collapse id='basic-navbar-nav'>
-			<Nav className='ml-auto'>
+        </Navbar.Brand> */}
+		<Navbar.Toggle aria-controls='basic-navbar-nav'  />
+		<Navbar.Collapse id='basic-navbar-nav' style={{backgroundColor: "#A9261E"}}>
+			<Nav className='ml-auto' style={{backgroundColor: "#A9261E"}}>
 				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					<span className='navbar-text mr-2' style={{backgroundColor: "#A9261E", color: "whitesmoke", fontWeight: "700"}}>Welcome, {user.email}</span>
 				)}
-				{alwaysOptions}
+				{/* {alwaysOptions} */}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
 		</Navbar.Collapse>
