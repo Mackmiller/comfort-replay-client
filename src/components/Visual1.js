@@ -34,7 +34,7 @@ const Visual1 = (props) => {
     const textShow = topShow.map((s, i)=>{
         // establishing each key/value pair:
         return (
-            <h1>Your top show was {s.key}, which was watched a total of {s.value} times since March 11, 2020.</h1>
+            <h3>TL;DR: Your top show was {s.key}, which was watched a total of {s.value} times since March 11, 2020.</h3>
         ) 
     })
     console.log(finalData)
@@ -43,6 +43,7 @@ const Visual1 = (props) => {
         <div>
             {addShow()}
             {textShow}
+            <h4 style={{textAlign: "center", marginTop:"40px"}}>Top Ten Shows (Number of Viewing Sessions)</h4>
             <ResponsiveContainer width="95%" height={400}>
                 <BarChart
                     width={1500}
@@ -53,9 +54,9 @@ const Visual1 = (props) => {
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="key" style={{fontSize: 10}} interval={0} />
                     <YAxis/>
-                    <Tooltip />
+                    <Tooltip/>
                     <Legend />
-                    <Bar dataKey="value" fill="#B48DD8" />
+                    <Bar name="Number of views" dataKey="value" fill="#A9261E" />
                 </BarChart>
             </ResponsiveContainer>
         </div>

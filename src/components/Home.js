@@ -75,7 +75,7 @@ const Home = (props) => {
 			</h1>
 			<h3>Step 1: Request your data.</h3>
 			<p>
-				Request your individual user data from Netflix <a href="https://www.netflix.com/account/getmyinfo">here</a>. Keep in mind that this process could take up to 30 days to receive a response.
+				Request your individual user data from Netflix <a href="https://www.netflix.com/account/getmyinfo" target="_blank">here</a>. Keep in mind that this process could take up to 30 days to receive a response.
 			</p>
 			<h3>Step 2: Download your data locally.</h3>
 			<p>Now that you have received your data from Netflix, download the zip folder to an accessible area of your computer. Unzip the folder and take a look at the contents.</p>
@@ -88,8 +88,8 @@ const Home = (props) => {
 				<Form.Control type="file" onChange={handleFile}></Form.Control>
 				</FormGroup>
 
-				<Button block bssize="large" type="submit">
-				Submit
+				<Button block bssize="large" type="submit" >
+				SUBMIT
 				</Button>
 			</form>
 			{/* <div>
@@ -102,7 +102,7 @@ const Home = (props) => {
 				</>
 			) : (
 				<div>
-					<p>upload your file to begin.</p>
+					<p style={{color: "whitesmoke"}}>submit your file to begin.</p>
 				</div>
 			)}
 		</main>

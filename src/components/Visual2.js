@@ -28,6 +28,7 @@ const Visual2 = (props) => {
 	return (
 		
         <div>
+            <h4 style={{textAlign: "center", marginTop:"40px"}}>Viewing Session Distribution (24hr Clock in Eastern Standard Time)</h4>
             <ResponsiveContainer width="95%" height={400}>
                 <BarChart
                     width={1500}
@@ -40,7 +41,7 @@ const Visual2 = (props) => {
                     <YAxis/>
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="value" fill="#B48DD8" />
+                    <Bar name="Number of views" dataKey="value" fill="#A9261E" />
                 </BarChart>
             </ResponsiveContainer>
         </div>
