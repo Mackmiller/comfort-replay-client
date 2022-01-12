@@ -19,6 +19,9 @@ const authenticatedOptions = (
 				Sign Out
 			</Link>
 		</Nav.Link>
+		<Nav.Link style={{backgroundColor: "#A9261E"}}>
+		    <Link to='shows' style={linkStyle}>Shows</Link>
+        </Nav.Link>
 	</>
 )
 
@@ -29,6 +32,9 @@ const unauthenticatedOptions = (
         </Nav.Link>
         <Nav.Link style={{backgroundColor: "#A9261E"}}>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
+        </Nav.Link>
+		<Nav.Link style={{backgroundColor: "#A9261E"}}>
+		    <Link to='shows' style={linkStyle}>Shows</Link>
         </Nav.Link>
 	</>
 )

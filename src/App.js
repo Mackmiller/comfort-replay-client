@@ -1,7 +1,9 @@
 // import React, { Component, Fragment } from 'react'
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import axios from "axios"
+import apiUrl from './apiConfig'
 
 import "../src/index.css"
 
@@ -10,6 +12,7 @@ import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAl
 import Header from './components/shared/Header'
 import RequireAuth from './components/shared/RequireAuth'
 import Home from './components/Home'
+import Shows from './components/Shows'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
@@ -20,6 +23,8 @@ const App = () => {
 
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
+
+  let [shows, setShows] = useState([])
 
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
@@ -43,6 +48,23 @@ const App = () => {
 		})
 	}
 
+    // get top show data from database
+    useEffect(() => {
+        getShows()
+    }, [])
+
+    const getShows = () => {
+		axios.get(apiUrl+"/shows/", {
+        })
+            .then((response) => {
+                // console.log(response.data)
+                setShows(response.data)
+                console.log(shows)
+            })
+            .catch((error) => { console.log(error.response) });
+	}
+
+
 		return (
 			<Fragment>
 				<Header user={user} />
@@ -56,7 +78,8 @@ const App = () => {
 						path='/sign-in/'
 						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 					/>
-					
+					<Route path='/shows/' element={<Shows msgAlert={msgAlert} user={user} getShows={getShows} shows={shows}/>} />
+
           <Route
             path='/sign-out/'
             element={
