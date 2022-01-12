@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700;900&display=swap');
 * {
   
 }
@@ -15,7 +14,7 @@ code {
 }
 
 .content h1 {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 900;
     color: #A9261E;
   }
@@ -29,6 +28,12 @@ code {
   border: none;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+.site-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 50px;
+  letter-spacing: 2px;
+  margin-left: 20px;
 }
 
 /* .content button:hover, button:active {
