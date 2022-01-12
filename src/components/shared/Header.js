@@ -19,6 +19,9 @@ const authenticatedOptions = (
 				Sign Out
 			</Link>
 		</Nav.Link>
+		<Nav.Link style={{backgroundColor: "#A9261E"}}>
+		    <Link to='shows' style={linkStyle}>Shows</Link>
+        </Nav.Link>
 	</>
 )
 
@@ -29,6 +32,9 @@ const unauthenticatedOptions = (
         </Nav.Link>
         <Nav.Link style={{backgroundColor: "#A9261E"}}>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
+        </Nav.Link>
+		<Nav.Link style={{backgroundColor: "#A9261E"}}>
+		    <Link to='shows' style={linkStyle}>Top Shows</Link>
         </Nav.Link>
 	</>
 )
@@ -45,11 +51,11 @@ const unauthenticatedOptions = (
 
 const Header = ({ user }) => (
 	<Navbar expand='md' style={{backgroundColor: "#A9261E"}}>
-		{/* <Navbar.Brand>
-            <Link to='/' style={linkStyle}>
-                react-auth-template
+		<Navbar.Brand>
+            <Link to='/' style={linkStyle} className="site-name">
+                Comfort Replay
             </Link>
-        </Navbar.Brand> */}
+        </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav'  />
 		<Navbar.Collapse id='basic-navbar-nav' style={{backgroundColor: "#A9261E"}}>
 			<Nav className='ml-auto' style={{backgroundColor: "#A9261E"}}>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import {
     BarChart,
     Bar,
@@ -12,18 +12,10 @@ import {
 
 const Visual2 = (props) => {
     // console.log(props.showData)
-    const finalData = Object.entries(props.dailyData).map(([key, value]) => ({key,value}))
 
-    // const finalData = props.showData.map((c, i)=>{
-    //     // establishing each key/value pair:
-    //     const name = c[0]
-    //     const value = c[1]
-        
-    //     return (
-    //         name, value
-    //     ) 
-    // })
-    // console.log(finalData)
+    // set up key/value pairs for daily data
+    // this allows the data to be more easily read by rechart library for visualization
+    const finalData = Object.entries(props.dailyData).map(([key, value]) => ({key,value}))
 
 	return (
 		
@@ -34,7 +26,6 @@ const Visual2 = (props) => {
                     width={1500}
                     height={350}
                     data={finalData}
-                    
                     >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="key" style={{fontSize: 9}}/>
