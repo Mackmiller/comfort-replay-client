@@ -17,8 +17,33 @@ const Visual1 = (props) => {
 
     // set up key/value pairs for top ten show data
     const finalData = Object.entries(props.showData).map(([key, value]) => ({key,value}))
-    // set up ley/value pair for number one top show
+    // console.log("THIS IS FINAL DATA", finalData)
+    // set up key/value pair for number one top show
     const topShow = Object.entries(props.oneShow).map(([key, value]) => ({key,value}))
+
+    const addProfile = () => { 
+        return Promise.all(finalData.map((eachShow)=>{
+            console.log(eachShow)
+            return axios.post(apiUrl+"/profile/", (eachShow), {
+                // this was giving me auth problems on sign out, so commented it out (similar to getShows in app.js)
+                headers: {
+                    'Authorization': 'Token '+ props.user.token
+                }
+            })
+                .then((response) => {
+                    console.log("PROFILE CREATED", response)
+                })
+                .catch((error) => {
+                    console.log(error.response)
+                });
+            })
+        )
+    }
+
+    // run useEffect dependent on topShow data
+    useEffect(() => {
+        addProfile()
+    }, [])
 
     // add topShow to database of top showers for all users once visuals load
     const addShow = () => {
