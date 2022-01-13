@@ -145,17 +145,13 @@ const App = () => {
 			})
 			.then((response) => {
 				// console.log(response.data)
-				setUserShows(response.data)
+				setUserShows(response.data.profiles)
 				console.log("this is user shows state", userShows)
 			})
 			.catch((error) => { console.log(error.response) });
 		}
     }
     
-    // run again once charts boolean state is true
-    useEffect(() => {
-        getUserShows()
-    }, [charts])
 
 	return (
 		<Fragment>
@@ -171,7 +167,7 @@ const App = () => {
 					element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 				/>
 				<Route path='/shows/' element={<Shows msgAlert={msgAlert} user={user} getShows={getShows} shows={shows}/>} />
-				<Route path='/profile/' element={<Profile msgAlert={msgAlert} user={user}/>} />
+				<Route path='/profile/' element={<Profile msgAlert={msgAlert} user={user} getUserShows={getUserShows} userShows={userShows}/>} />
 				<Route
 				path='/sign-out/'
 				element={
