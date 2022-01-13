@@ -16,9 +16,9 @@ const Shows = (props) => {
       })
 
 	return (
-		<div>
-            <h1>Top shows</h1>
-            <ul>
+		<div className="content">
+            <h1 className='text-center my-4'>Top shows submitted by Comfort Replay users:</h1>
+            <ul style={{textAlign: "center"}}>
                 {showNames}
             </ul>
         </div>

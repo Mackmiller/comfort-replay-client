@@ -18,7 +18,7 @@ const authenticatedOptions = (
 		    <Link to='shows' style={linkStyle}>Top Shows</Link>
         </Nav.Link>
 		<Nav.Link style={{backgroundColor: "#A9261E"}}>
-		    <Link to='shows' style={linkStyle}>Profile</Link>
+		    <Link to='profile' style={linkStyle}>Profile</Link>
         </Nav.Link>
 		<Nav.Link style={{backgroundColor: "#A9261E"}}>
 			<Link to='sign-out' style={linkStyle}>
