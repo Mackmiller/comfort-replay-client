@@ -24,12 +24,15 @@ const App = () => {
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])
 	let [shows, setShows] = useState([])
-
+	// this state helps determine if chart divs are visible or not
+	const [charts, setCharts] = useState(false);
+	
 	console.log('user in app', user)
 	console.log('message alerts', msgAlerts)
 	const clearUser = () => {
 		console.log('clear user ran')
 		setUser(null)
+		setCharts(false)
 	}
 	const deleteAlert = (id) => {
 		setMsgAlerts((prevState) => {
@@ -50,8 +53,6 @@ const App = () => {
 	let [showData, setShowData] = useState([])
 	let [dailyData, setDailyData] = useState([])
 	let [oneShow, setOneShow] = useState([])
-	// this state helps determine if chart divs are visible or not
-	const [charts, setCharts] = useState(false);
 	
 	// on input change, handle file upload
 	const handleFile = (event) => {

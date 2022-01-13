@@ -9,11 +9,11 @@ const linkStyle = {
 }
 const authenticatedOptions = (
 	<>
-		<Nav.Link style={{backgroundColor: "#A9261E"}}>
+		{/* <Nav.Link style={{backgroundColor: "#A9261E"}}>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
-		</Nav.Link>
+		</Nav.Link> */}
 		<Nav.Link style={{backgroundColor: "#A9261E"}}>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
