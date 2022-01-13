@@ -9,32 +9,35 @@ const linkStyle = {
 }
 const authenticatedOptions = (
 	<>
-		<Nav.Link style={{backgroundColor: "#A9261E"}}>
+		{/* <Nav.Link style={{backgroundColor: "#A9261E"}}>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
-		</Nav.Link>
+		</Nav.Link> */}
+		<Nav.Link style={{backgroundColor: "#A9261E"}}>
+		    <Link to='shows' style={linkStyle}>Top Shows</Link>
+        </Nav.Link>
+		<Nav.Link style={{backgroundColor: "#A9261E"}}>
+		    <Link to='shows' style={linkStyle}>Profile</Link>
+        </Nav.Link>
 		<Nav.Link style={{backgroundColor: "#A9261E"}}>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
 		</Nav.Link>
-		<Nav.Link style={{backgroundColor: "#A9261E"}}>
-		    <Link to='shows' style={linkStyle}>Shows</Link>
-        </Nav.Link>
 	</>
 )
 
 const unauthenticatedOptions = (
 	<>
+		<Nav.Link style={{backgroundColor: "#A9261E"}}>
+		    <Link to='shows' style={linkStyle}>Top Shows</Link>
+        </Nav.Link>
         <Nav.Link style={{backgroundColor: "#A9261E"}}>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Link>
         <Nav.Link style={{backgroundColor: "#A9261E"}}>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
-        </Nav.Link>
-		<Nav.Link style={{backgroundColor: "#A9261E"}}>
-		    <Link to='shows' style={linkStyle}>Top Shows</Link>
         </Nav.Link>
 	</>
 )
@@ -59,9 +62,9 @@ const Header = ({ user }) => (
 		<Navbar.Toggle aria-controls='basic-navbar-nav'  />
 		<Navbar.Collapse id='basic-navbar-nav' style={{backgroundColor: "#A9261E"}}>
 			<Nav className='ml-auto' style={{backgroundColor: "#A9261E"}}>
-				{user && (
+				{/* {user && (
 					<span className='navbar-text mr-2' style={{backgroundColor: "#A9261E", color: "whitesmoke", fontWeight: "700"}}>Welcome, {user.email}</span>
-				)}
+				)} */}
 				{/* {alwaysOptions} */}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>

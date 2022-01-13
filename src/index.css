@@ -8,6 +8,12 @@ code {
   
 }
 
+img {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+
 .content {
   padding: 30px;
   background: whitesmoke;
@@ -34,6 +40,12 @@ code {
   font-size: 50px;
   letter-spacing: 2px;
   margin-left: 20px;
+}
+.tag-line {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  color: #A9261E;
 }
 
 /* .content button:hover, button:active {
