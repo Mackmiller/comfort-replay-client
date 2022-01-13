@@ -27,6 +27,7 @@ const App = () => {
 	let [shows, setShows] = useState([])
 	// this state helps determine if chart divs are visible or not
 	const [charts, setCharts] = useState(false);
+	let [userShows, setUserShows] = useState([])
 	
 	console.log('user in app', user)
 	console.log('message alerts', msgAlerts)
@@ -116,6 +117,7 @@ const App = () => {
 		getShows()
 	}, [charts])
 
+	// get all top shows from show database for top shows(all users)
     const getShows = () => {
 		axios.get(apiUrl+"/shows/", {
 			// header proved to be problematic when making Top Shows page visible to users and non users
@@ -130,6 +132,30 @@ const App = () => {
             })
             .catch((error) => { console.log(error.response) });
 	}
+
+
+    // get user-specific shows from database for profile
+    const getUserShows = () => {
+		if(user) {
+			axios.get(apiUrl+"/profile/", {
+				// header proved to be problematic when making Top Shows page visible to users and non users
+				headers: {
+					'Authorization': 'Token '+ user.token
+				}
+			})
+			.then((response) => {
+				// console.log(response.data)
+				setUserShows(response.data)
+				console.log("this is user shows state", userShows)
+			})
+			.catch((error) => { console.log(error.response) });
+		}
+    }
+    
+    // run again once charts boolean state is true
+    useEffect(() => {
+        getUserShows()
+    }, [charts])
 
 	return (
 		<Fragment>
