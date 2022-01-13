@@ -2,17 +2,18 @@ import React from "react"
 import { Button, FormGroup, Form } from "react-bootstrap"
 import Visual1 from './Visual1'
 import Visual2 from './Visual2'
+import { Link } from "react-router-dom"
 
 const Home = (props) => {
 
 
 	return (
 		<main className="content">
-			<h1 className="text-center my-4">
-			What does your Netflix user data say about your viewing habits during the COVID-19 Pandemic?
-			</h1>
 			{props.user? (
 				<>
+					<h1 className="text-center my-4">
+					What does your Netflix user data say about your viewing habits during the COVID-19 Pandemic?
+					</h1>
 					<h3>Step 1: Request your data.</h3>
 					<p>
 						Request your individual user data from Netflix <a href="https://www.netflix.com/account/getmyinfo" target="_blank" rel="noreferrer">here</a>. Keep in mind that this process could take up to 30 days to receive a response.
@@ -35,11 +36,15 @@ const Home = (props) => {
 				</>
 				) : (
 				<div>
-					<h3>Step 1: Request your data.</h3>
-					<p>
+					<h1 className="text-center my-4">
+					What does your Netflix user data say about your viewing habits during the COVID-19 Pandemic?
+					</h1>
+					<h3 style = {{textAlign: "center"}}>Step 1: Request your data.</h3>
+					<p style={{textAlign: "center"}}>
 						Request your individual user data from Netflix <a href="https://www.netflix.com/account/getmyinfo" target="_blank" rel="noreferrer">here</a>. Keep in mind that this process could take up to 30 days to receive a response.
 					</p>
-					<h3>Sign in or Sign up to get your personalized analysis.</h3>
+					<h3 className="tag-line"><Link to='/sign-in/' style={{color: "#A9261E"}}>Sign in</Link> or <Link to='/sign-up/' style={{color: "#A9261E"}}>Sign up</Link> to get your personalized analysis, or <Link to='/shows/' style={{color: "#A9261E"}}>get a glimpse at other users' results</Link>.</h3>
+					<img src='header.png' alt="netflix header"/>
 				</div>
 			)}
 		
