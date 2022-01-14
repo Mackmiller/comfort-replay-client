@@ -18,13 +18,11 @@ As a user, I want to:
 
 ## Wireframes
 
-Coming soon.
-<!-- <img alt="site design" src="imgs/wireframes2.png"> -->
+<img alt="site design" src="imgs/p4-wireframes.png">
 
 ## Entity Relationship Diagram
 
-Coming Soon.
-<!-- <img alt="erd" src="imgs/erd2.png"> -->
+<img alt="erd" src="imgs/p4.png">
 
 ## Data analysis using pandas
 
