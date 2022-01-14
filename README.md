@@ -49,3 +49,40 @@ As a user, I want to:
 <img alt="logged in" src="imgs/screenshot1.png">
 <img alt="data visualization 1" src="imgs/screenshot2.png">
 <img alt="data visualization 2" src="imgs/screenshot3.png">
+
+### Local deployment
+
+- Install the LTS version of node.js from [here](https://nodejs.org/en/)
+- In a terminal, clone this repo
+
+```sh
+git clone https://github.com/Mackmiller/comfort-replay-client.git
+```
+
+- Navigate to the repo folder
+
+```sh
+cd comfort-replay-client
+```
+
+- Install the project dependencies:
+
+```sh
+npm install
+```
+
+- Deploy the project on your local machine
+
+```sh
+npm start
+```
+
+- for Part 2 of deployment, please see the server repo [here](https://github.com/Mackmiller/comfort-replay-server)
+
+## Cloud Deployment
+
+Both the server and client repos are deployed on Heroku [here](https://comfort-replay.herokuapp.com/)
+
+## Contributors
+
+- [Mackenzie Miller](https://github.com/Mackmiller)
