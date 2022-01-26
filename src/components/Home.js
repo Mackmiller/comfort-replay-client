@@ -43,7 +43,7 @@ const Home = (props) => {
 					<p style={{textAlign: "center"}}>
 						Request your individual user data from Netflix <a href="https://www.netflix.com/account/getmyinfo" target="_blank" rel="noreferrer">here</a>. Keep in mind that this process could take up to 30 days to receive a response.
 					</p>
-					<h3 className="tag-line"><Link to='/sign-in/' style={{color: "#A9261E"}}>Sign in</Link> or <Link to='/sign-up/' style={{color: "#A9261E"}}>Sign up</Link> to get your personalized analysis, or <Link to='/shows/' style={{color: "#A9261E"}}>get a glimpse at other users' results</Link>.</h3>
+					<h3 className="tag-line"><Link to='/sign-in/' style={{color: "#A9261E"}}>Sign in</Link> or <Link to='/sign-up/' style={{color: "#A9261E"}}>Sign up</Link> to get your personalized analysis and see how your results compare to other users.</h3>
 					<img src='header.png' alt="netflix header"/>
 				</div>
 			)}

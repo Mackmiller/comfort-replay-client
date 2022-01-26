@@ -30,9 +30,6 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-		<Nav.Link style={{backgroundColor: "#A9261E"}}>
-		    <Link to='shows' style={linkStyle}>Top Shows</Link>
-        </Nav.Link>
         <Nav.Link style={{backgroundColor: "#A9261E"}}>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Link>
